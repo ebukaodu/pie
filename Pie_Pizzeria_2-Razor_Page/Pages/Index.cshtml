@@ -1,0 +1,22 @@
+﻿@page
+@{
+    var pies = MockPieRepository.GetAllPies().OrderBy(p => p.Name);
+}
+
+@foreach (var pie in pies)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="@pie.ImageThumbnailUrl" alt="">
+            <div class="caption">
+                <h3 class="pull-right">@pie.Price.ToString("c")</h3>
+                <h3 class="text-success">
+                    @pie.Name
+                </h3>
+                <p>@pie.ShortDescription</p>
+            </div>
+        </div>
+    </div>
+}
+
+
